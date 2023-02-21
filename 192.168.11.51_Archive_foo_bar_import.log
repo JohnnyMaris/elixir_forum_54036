@@ -1,0 +1,17 @@
+08:39:55.433 [debug] POST /foo_bar/import
+ 
+08:39:55.434 [error] nil
+ 
+08:39:55.435 [error] {:ok, "-----------------------------2739920931381921920388853475\r\nContent-Disposition: form-data; name=\"file\"; filename=\"example.csv\"\r\nContent-Type: text/csv\r\n\r\nh1;h2;h3\nr1c1;r1c2;r1c3\nr2c1;r2c2;r2c3\nr3c1;r3c2;r3c3\n\r\n-----------------------------2739920931381921920388853475--\r\n", %Plug.Conn{adapter: {Plug.Cowboy.Conn, :...}, assigns: %{}, body_params: %Plug.Conn.Unfetched{aspect: :body_params}, cookies: %Plug.Conn.Unfetched{aspect: :cookies}, halted: false, host: "192.168.11.51", method: "POST", owner: #PID<0.413.0>, params: %{}, path_info: ["foo_bar", "import"], path_params: %{}, port: 80, private: %{before_send: [#Function<1.3486200/1 in Plug.Logger.call/2>], plug_route: {"/foo_bar/import", #Function<1.93279599/2 in FooBar.API.do_match/4>}}, query_params: %Plug.Conn.Unfetched{aspect: :query_params}, query_string: "", remote_ip: {127, 0, 0, 1}, req_cookies: %Plug.Conn.Unfetched{aspect: :cookies}, req_headers: [{"accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8"}, {"accept-encoding", "gzip, deflate, br"}, {"accept-language", "en-US,en;q=0.5"}, {"cache-control", "no-cache"}, {"content-length", "271"}, {"content-type", "multipart/form-data; boundary=---------------------------2739920931381921920388853475"}, {"dnt", "1"}, {"host", "192.168.11.51"}, {"origin", "https://192.168.11.51"}, {"pragma", "no-cache"}, {"referer", "https://192.168.11.51/"}, {"sec-fetch-dest", "iframe"}, {"sec-fetch-mode", "navigate"}, {"sec-fetch-site", "same-origin"}, {"sec-gpc", "1"}, {"te", "trailers"}, {"upgrade-insecure-requests", "1"}, {"user-agent", "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/109.0"}, {"x-forwarded-for", "10.0.8.6"}, {"x-forwarded-host", "192.168.11.51"}, {"x-forwarded-port", "443"}, {"x-forwarded-proto", "https"}, {"x-forwarded-server", "root-uld-radu-trk5"}, {"x-real-ip", "10.0.8.6"}], request_path: "/foo_bar/import", resp_body: nil, resp_cookies: %{}, resp_headers: [{"cache-control", "max-age=0, private, must-revalidate"}], scheme: :http, script_name: [], secret_key_base: nil, state: :unset, status: nil}}
+ 
+08:39:55.435 [error] #PID<0.413.0> running FooBar.API (connection #PID<0.412.0>, stream id 1) terminated
+Server: 192.168.11.51:80 (http)
+Request: POST /foo_bar/import
+** (exit) an exception was raised:
+    ** (RuntimeError) expected dispatch/2 to return a Plug.Conn, all plugs must receive a connection (conn) and return a connection, got: :ok
+        (foo_bar 5.2.3) lib/api.ex:1: FooBar.API.plug_builder_call/2
+        (plug_cowboy 2.6.0) lib/plug/cowboy/handler.ex:11: Plug.Cowboy.Handler.init/2
+        (cowboy 2.9.0) /WSP/Trunk/elixir/apps/foo_bar/deps/cowboy/src/cowboy_handler.erl:37: :cowboy_handler.execute/2
+        (cowboy 2.9.0) /WSP/Trunk/elixir/apps/foo_bar/deps/cowboy/src/cowboy_stream_h.erl:306: :cowboy_stream_h.execute/3
+        (cowboy 2.9.0) /WSP/Trunk/elixir/apps/foo_bar/deps/cowboy/src/cowboy_stream_h.erl:295: :cowboy_stream_h.request_process/3
+        (stdlib 4.0.1) proc_lib.erl:240: :proc_lib.init_p_do_apply/3
